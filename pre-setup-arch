@@ -11,7 +11,7 @@ sudo -S pacman -S base-devel
 
 cat << EOF >> .bashrc
 if [ -d "${HOME}/.bashrc.d" ] ; then
-  for f in "${HOME}"/.bashrc.d/* ; do
+  for f in "${HOME}"/.bashrc.d/*.sh ; do
     [ -x "$f" ] && . "$f"
   done
   unset f

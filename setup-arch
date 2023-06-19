@@ -91,9 +91,7 @@ ln -sf "$dotdir/.tmux.conf" "$HOME/.tmux.conf"
 # setup bashrc
 ####################################
 
-mkdir -p "$HOME/.bashrc.d"
-ln -sf "$dotdir/bash_env" "$HOME/.bashrc.d/bash_env"
-
+ln -sf "$dotdir/.bashrc.d" "$HOME/.bashrc.d"
 
 ####################################
 # setup git

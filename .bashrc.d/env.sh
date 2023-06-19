@@ -1,2 +1,1 @@
-# Load Cargo
 . "$HOME/.cargo/env"
