@@ -1,0 +1,31 @@
+#!/bin/bash
+
+####################################
+# Installation
+####################################
+sudo -S pacman -S base-devel
+
+####################################
+# bashrc
+####################################
+
+cat << EOF >> .bashrc
+if [ -d "${HOME}/.bashrc.d" ] ; then
+  for f in "${HOME}"/.bashrc.d/* ; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
+fi
+EOF
+
+
+####################################
+# .bash_it
+####################################
+
+sudo pacman -S bash-completion
+
+git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+~/.bash_it/install.sh
+
+source ~/.bashrc

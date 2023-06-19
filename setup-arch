@@ -1,0 +1,107 @@
+#!/bin/bash
+
+dotdir=$(dirname "$(realpath "$0")")
+
+### Create workspace
+mkdir -p "$HOME/workspace"
+
+### Install packages for completion
+bash-it enable completion git ssh
+
+####################################
+# tmux
+####################################
+
+# sudo pacman -S tmux
+bash-it enable completion tmux
+
+
+####################################
+# nvm
+####################################
+
+git clone https://github.com/nvm-sh/nvm.git ~/.nvm
+bash-it enable plugin nvm
+source ~/.bashrc
+nvm install --lts
+
+####################################
+# golang
+####################################
+sudo pacman -S golang
+bash-it enalbe plugin go
+bash-it enable completion go
+
+####################################
+# Rust
+####################################
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+bash-it enable completion go
+
+####################################
+# Docker
+####################################
+
+sudo pacman -S docker
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+sudo pacman -S docker-compose
+
+bash-it enable completion docker docker-compose
+
+####################################
+# yarn
+####################################
+
+npm i -g yarn
+bash-it enable completion yarn
+
+####################################
+# lazygit
+####################################
+
+sudo pacman -S lazygit
+
+####################################
+# yay
+####################################
+git clone https://aur.archlinux.org/yay.git "$HOME/workspace/yay" && cd "$HOME/workspace/yay" && makepkg -si
+
+####################################
+# lazydocker
+####################################
+yay -S lazydocker
+
+####################################
+# setup neovim
+####################################
+
+ln -sf "$dotdir/nvim" "$HOME/.config/nvim"
+
+
+####################################
+# setup tmux
+####################################
+
+ln -sf "$dotdir/.tmux.conf" "$HOME/.tmux.conf"
+
+
+####################################
+# setup bashrc
+####################################
+
+mkdir -p "$HOME/.bashrc.d"
+ln -sf "$dotdir/bash_env" "$HOME/.bashrc.d/bash_env"
+
+
+####################################
+# setup git
+####################################
+
+git config --global user.email "ppdx999@gmail.com"
+git config --global user.name "ppdx999"
+git config --global core.editor "vim"
+git config --global diff.tool vimdiff
+git config --global difftool.prompt false
+git config --global alias.tree 'log --graph --all --format="%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s"'
