@@ -94,6 +94,12 @@ ln -sf "$dotdir/.tmux.conf" "$HOME/.tmux.conf"
 ln -sf "$dotdir/.bashrc.d" "$HOME/.bashrc.d"
 
 ####################################
+# setup bin
+####################################
+
+ln -sf "$dotdir/bin" "$HOME/bin"
+
+####################################
 # setup git
 ####################################
 
