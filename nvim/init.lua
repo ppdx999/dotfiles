@@ -276,10 +276,20 @@ plugins = {
   'norcalli/nvim-colorizer.lua',
   'junegunn/vim-easy-align',
   {
+    'akinsho/git-conflict.nvim',
+    version = "v1.1.2",
+    config = true
+  },
+  {
     "ellisonleao/gruvbox.nvim",
     config = function()
-      vim.o.background = "dark"
-      vim.cmd([[colorscheme gruvbox]])
+      vim.cmd([[
+        set background=dark
+        let g:gruvbox_italic=1
+        colorscheme gruvbox
+        hi Comment cterm=italic gui=None guifg=#928374
+        hi String cterm=italic gui=None guifg=#b8bb26
+      ]])
     end
   },
 }
