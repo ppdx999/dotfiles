@@ -1,0 +1,19 @@
+#!/bin/sh -e
+
+
+if [ -f .vim/coc-settings.json ]; then
+  cp .vim/coc-settings.json .vim/coc-settings.json.bak
+fi
+
+mkdir -p .vim
+cat << EOF > .vim/coc-settings.json
+{
+  "deno.enable": true,
+  "deno.lint": true,
+  "deno.unstable": true,
+  "prettier.disableLanguages": ["typescript"],
+  "typescript.format.enabled": false,
+  "eslint.enable": false,
+  "tsserver.enable": false
+}
+EOF
