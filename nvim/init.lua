@@ -15,6 +15,7 @@ vim.o.visualbell = true
 vim.o.number = true
 vim.o.showmatch = true
 vim.o.matchtime = 1
+vim.o.wrap = false
 
 -- search
 vim.o.incsearch = true
@@ -292,6 +293,7 @@ plugins = {
       ]])
     end
   },
+  "elixir-editors/vim-elixir",
 }
 
 require('lazy').setup(plugins)
