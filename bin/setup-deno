@@ -5,6 +5,9 @@ if [ -f .vim/coc-settings.json ]; then
   cp .vim/coc-settings.json .vim/coc-settings.json.bak
 fi
 
+# Setup coc-settings.json
+# Because coc-settings can't automatically detect deno instead of nodejs,
+# we need to disable tsserver and eslint, and enable deno manually.
 mkdir -p .vim
 cat << EOF > .vim/coc-settings.json
 {
@@ -15,5 +18,17 @@ cat << EOF > .vim/coc-settings.json
   "typescript.format.enabled": false,
   "eslint.enable": false,
   "tsserver.enable": false
+}
+EOF
+
+if [ -f deno.json ]; then
+  cp deno.json deno.json.bak
+fi
+cat << EOF > deno.json
+{
+  "tasks": {
+    "check": "deno check **/*.ts",
+    "ok": "deno fmt --check && deno lint && deno task check && deno test",
+  }
 }
 EOF
