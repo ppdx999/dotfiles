@@ -20,15 +20,3 @@ cat << EOF > .vim/coc-settings.json
   "tsserver.enable": false
 }
 EOF
-
-if [ -f deno.json ]; then
-  cp deno.json deno.json.bak
-fi
-cat << EOF > deno.json
-{
-  "tasks": {
-    "check": "deno check **/*.ts",
-    "ok": "deno fmt --check && deno lint && deno task check && deno test",
-  }
-}
-EOF
