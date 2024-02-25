@@ -19,4 +19,8 @@ assert_symlink_exist() {
   done
 }
 
-assert_symlink_exist $HOME/.tmux.conf $HOME/.config/nvim $HOME/.config/lvim
+assert_symlink_exist \
+  $HOME/.bashrc \
+  $HOME/.tmux.conf \
+  $HOME/.config/nvim \
+  $HOME/.config/lvim
