@@ -39,7 +39,7 @@ link_to_home_dir() {
   local dot_dir=$(dirname $script_dir)
   local backup_dir="${XDG_CACHE_HOME:-$HOME/.cache}/dotbackup/$(date '+%y%m%d-%H%M%S')"
 
-  [[ -d "backup_dir" ]] || command echo mkdir -p "$backup_dir"
+  [[ -d "backup_dir" ]] || command mkdir -p "$backup_dir"
   
   [[ "$HOME" == "$dot_dir" ]] && error_exit "src_dir and dest_dir are the same"
   
