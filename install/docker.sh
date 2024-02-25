@@ -17,9 +17,9 @@ if ! command -v docker &> /dev/null ; then
   sudo apt-get update
 
   # Insall the Docker packages:
-  sudo -y apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+  sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 fi
 
 # Add $USER to docker group
 getent group docker &> /dev/null || sudo groupadd docker # create docker group if not exist
-sudo usermod -aG docker $USER
+[[ "$EUID" -ne 0 ]] && sudo usermod -aG docker $USER     # add $USER to docker group if $USER is non-root
