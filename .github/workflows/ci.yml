@@ -1,0 +1,25 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+    container: ubuntu:latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install required packages
+        run: apt update && apt install -y git sudo
+
+      - name: Install dotfiles
+        run: ./install.sh install
+
+      - name: Test dotfiles
+        run: ./test.sh
