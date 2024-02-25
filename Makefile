@@ -4,7 +4,7 @@ install:
 
 .PHONY: build
 build:
-	docker compose build --no-cache
+	docker compose build
 
 .PHONY: run
 run:
