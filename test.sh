@@ -37,4 +37,5 @@ assert_command_exist \
   $HOME/.cargo/bin/starship \
 	python3 \
 	pip3 \
-	ripgrep
+	ripgrep \
+  $HOME/.local/bin/lvim
