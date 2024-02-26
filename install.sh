@@ -14,4 +14,5 @@ $dot_dir/install/deno.sh
 $dot_dir/install/nvim.sh
 $dot_dir/install/fnm.sh
 $dot_dir/install/starship.sh
+$dot_dir/install/python.sh
 command echo -e "\e[1;36m Install completed!!!! \e[m"
