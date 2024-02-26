@@ -32,4 +32,5 @@ assert_command_exist \
   /usr/bin/go \
   $HOME/go/bin/lazygit \
   $HOME/.deno/bin/deno \
-  nvim
+  nvim \
+  $HOME/.cargo/bin/fnm
