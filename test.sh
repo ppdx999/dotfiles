@@ -36,4 +36,5 @@ assert_command_exist \
   $HOME/.cargo/bin/fnm \
   $HOME/.cargo/bin/starship \
 	python3 \
-	pip3
+	pip3 \
+	ripgrep
