@@ -11,4 +11,5 @@ $dot_dir/install/rust.sh
 $dot_dir/install/go.sh
 $dot_dir/install/lazygit.sh
 $dot_dir/install/deno.sh
+$dot_dir/install/nvim.sh
 command echo -e "\e[1;36m Install completed!!!! \e[m"
