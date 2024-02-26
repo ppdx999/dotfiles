@@ -28,4 +28,5 @@ assert_symlink_exist \
 assert_command_exist \
   $HOME/.cargo/bin/cargo \
   /usr/bin/go \
-  $HOME/go/bin/lazygit
+  $HOME/go/bin/lazygit \
+  $HOME/.deno/bin/deno
