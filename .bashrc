@@ -130,7 +130,7 @@ pathappend ~/.local/bin
 
 if [ -d "${HOME}/.config/bash" ] ; then
   for f in "${HOME}"/.config/bash/*.sh ; do
-    [ -x "$f" ] && source "$f"
+    source "$f"
   done
   unset f
 fi
