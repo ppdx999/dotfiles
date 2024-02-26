@@ -26,4 +26,5 @@ assert_symlink_exist \
   $HOME/.config/lvim
 
 assert_command_exist \
-  $HOME/.cargo/bin/cargo
+  $HOME/.cargo/bin/cargo \
+  /usr/bin/go
