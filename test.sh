@@ -26,6 +26,7 @@ assert_symlink_exist \
   $HOME/.config/lvim
 
 assert_command_exist \
+  tmux \
   $HOME/.cargo/bin/cargo \
   /usr/bin/go \
   $HOME/go/bin/lazygit \
