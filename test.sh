@@ -38,4 +38,5 @@ assert_command_exist \
 	python3 \
 	pip3 \
   rg \
-  $HOME/.local/bin/lvim
+  $HOME/.local/bin/lvim \
+  $HOME/.local/share/pnpm/pnpm
