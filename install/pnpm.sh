@@ -1,4 +1,4 @@
 #!/bin/bash
 set -eu
 
-curl -fsSL https://get.pnpm.io/install.sh | sh -
+wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="$(which bash)" bash -
