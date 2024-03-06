@@ -18,4 +18,5 @@ $dot_dir/install/python.sh
 $dot_dir/install/ripgrep.sh
 $dot_dir/install/lvim.sh
 $dot_dir/install/pnpm.sh
+$dot_dir/install/pyenv.sh
 command echo -e "\e[1;36m Install completed!!!! \e[m"
