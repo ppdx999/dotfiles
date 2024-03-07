@@ -2,13 +2,13 @@
 set -eu
 
 # install python dependencies
-sudo apt install -y build-essential gdb lcov pkg-config \
+DEBIAN_FRONTEND=noninteractive sudo apt install -y build-essential gdb lcov pkg-config \
     libbz2-dev libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev \
     libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev \
     lzma lzma-dev tk-dev uuid-dev zlib1g-dev
 
 # install pyenv dependencies
-sudo apt install -y \
+DEBIAN_FRONTEND=noninteractive sudo apt install -y \
   build-essential \
   libssl-dev \
   zlib1g-dev \
