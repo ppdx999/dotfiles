@@ -2,6 +2,8 @@
 
 set -ue
 
+export DEBIAN_FRONTEND=noninteractive
+
 dot_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 
 $dot_dir/install/basic.sh
