@@ -19,7 +19,8 @@ vim.opt.list = true
 
 lvim.colorscheme = 'habamax'
 
-lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = true
+-- close nvimtree when open a file
+-- lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = true
 
 table.insert(lvim.plugins, {
   "zbirenbaum/copilot-cmp",

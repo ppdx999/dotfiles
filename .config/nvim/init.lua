@@ -19,7 +19,7 @@ vim.opt.signcolumn = 'yes'
 -- | Keymaps
 -- -------------------------------/
 
-vim.g.mapleader = ';'
+vim.g.mapleader = ' '
 vim.keymap.set('n', '<Esc><Esc>', '<Cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>w', ':w<CR>')
 vim.keymap.set('n', '<leader>q', ':q<CR>')
@@ -299,7 +299,7 @@ require("lazy").setup({
         callback = init_fern
       })
 
-      vim.keymap.set('n', '<leader>j', ':<C-u>Fern . -reveal=%<CR>')
+      vim.keymap.set('n', '<leader>e', ':<C-u>Fern . -reveal=%<CR>')
     end
   },
   -- /------------------------------
