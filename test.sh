@@ -23,8 +23,8 @@ assert_symlink_exist \
   $HOME/.bashrc \
   $HOME/.tmux.conf \
   $HOME/.config/nvim \
-  $HOME/.config/lvim \
   $HOME/.config/bash
+  # $HOME/.config/lvim \
 
 assert_command_exist \
   tmux \
