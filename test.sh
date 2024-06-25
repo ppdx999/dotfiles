@@ -30,7 +30,7 @@ assert_command_exist \
   tmux \
   $HOME/.cargo/bin/cargo \
   /usr/bin/go \
-  $HOME/go/bin/lazygit \
+  /usr/local/bin/lazygit \
   $HOME/.deno/bin/deno \
   nvim \
   $HOME/.cargo/bin/fnm \
