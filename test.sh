@@ -24,7 +24,6 @@ assert_symlink_exist \
   $HOME/.tmux.conf \
   $HOME/.config/nvim \
   $HOME/.config/bash
-  # $HOME/.config/lvim \
 
 assert_command_exist \
   tmux \
@@ -38,6 +37,5 @@ assert_command_exist \
 	python3 \
 	pip3 \
   rg \
-  $HOME/.local/bin/lvim \
   $HOME/.local/share/pnpm/pnpm \
   $HOME/.pyenv/bin/pyenv
