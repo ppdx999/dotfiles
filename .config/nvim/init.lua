@@ -8,7 +8,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = true
 
-vim.opt.clipboard = 'unnamed'
+vim.opt.clipboard = 'unnamedplus'
 
 -- Some plugins display signcolumn only when needed
 -- that shakes the screen when the signcolumn appears
