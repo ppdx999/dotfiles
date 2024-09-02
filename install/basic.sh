@@ -2,5 +2,5 @@
 set -ue
 
 sudo apt update
-sudo apt install -y curl unzip wget cmake git # build-essential
+sudo apt install -y curl unzip wget cmake git wl-clipbaord # build-essential
 
