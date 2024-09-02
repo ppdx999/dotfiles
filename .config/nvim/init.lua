@@ -111,16 +111,16 @@ require("lazy").setup({
       vim.api.nvim_create_autocmd("FileType", {
         pattern = 'ddu-ff',
         callback = function()
-          vim.keymap.set('n', '<CR>', '<Cmd>call ddu#ui#ff#do_action("itemAction")<CR>', { buffer = true })
-          vim.keymap.set('n', 'i', '<Cmd>call ddu#ui#ff#do_action("openFilterWindow")<CR>', { buffer = true })
-          vim.keymap.set('n', 'q', '<Cmd>call ddu#ui#ff#do_action("quit")<CR>', { buffer = true })
+          vim.keymap.set('n', '<CR>', '<Cmd>call ddu#ui#do_action("itemAction")<CR>', { buffer = true })
+          vim.keymap.set('n', 'i', '<Cmd>call ddu#ui#do_action("openFilterWindow")<CR>', { buffer = true })
+          vim.keymap.set('n', 'q', '<Cmd>call ddu#ui#do_action("quit")<CR>', { buffer = true })
         end
       })
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = 'ddu-ff-filter',
         callback = function()
-          vim.keymap.set('i', '<CR>', '<Esc><Cmd>call ddu#ui#ff#do_action("closeFilterWindow")<CR>', { buffer = true })
+          vim.keymap.set('i', '<CR>', '<Esc><Cmd>call ddu#ui#do_action("closeFilterWindow")<CR>', { buffer = true })
         end
       })
 
