@@ -350,6 +350,15 @@ require("lazy").setup({
     'airblade/vim-gitgutter',
   },
   -- /------------------------------
+  -- | PlantUML
+  -- -------------------------------/
+	{
+		'aklt/plantuml-syntax'
+	},
+	{
+		'weirongxu/plantuml-previewer.vim'
+	},
+  -- /------------------------------
   -- | MISC
   -- -------------------------------/
   {
@@ -363,5 +372,8 @@ require("lazy").setup({
   },
 	{
 		'akinsho/toggleterm.nvim', version = "*", config = true
+	},
+	{
+		'tyru/open-browser.vim'
 	},
 })
