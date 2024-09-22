@@ -299,7 +299,7 @@ require("lazy").setup({
         callback = init_fern
       })
 
-      vim.keymap.set('n', '<leader>e', ':<C-u>Fern . -reveal=%<CR>')
+      vim.keymap.set('n', '<leader>e', ':<C-u>Fern . -reveal=% -drawer -toggle -width=30<CR>')
     end
   },
   -- /------------------------------
