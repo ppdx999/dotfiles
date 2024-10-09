@@ -362,6 +362,9 @@ require("lazy").setup({
   -- /------------------------------
   -- | MISC
   -- -------------------------------/
+	{
+		'vim-test/vim-test',
+	},
   {
     'tpope/vim-surround',
   },
