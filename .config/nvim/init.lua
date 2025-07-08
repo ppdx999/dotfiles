@@ -9,7 +9,11 @@ vim.opt.smartcase = true
 vim.opt.hlsearch = true
 vim.opt.wrap = false
 
-vim.opt.clipboard = 'unnamedplus'
+if vim.fn.executable("win32yank.exe") == 1 then
+	vim.opt.clipboard = 'unnamedplus'
+else
+	vim.opt.clipboard = 'unnamed'
+end
 
 -- Some plugins display signcolumn only when needed
 -- that shakes the screen when the signcolumn appears
