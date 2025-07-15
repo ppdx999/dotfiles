@@ -384,6 +384,7 @@ require("lazy").setup({
 	{
 		'tyru/open-browser.vim'
 	},
+	{
 		'djoshea/vim-autoread',
 	}
 })
