@@ -43,6 +43,16 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
 
 -- /------------------------------
+-- | RML
+-- -------------------------------/
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = "*.rml",
+  callback = function()
+    vim.bo.filetype = "xml"
+  end,
+})
+
+-- /------------------------------
 -- | Plugins
 -- -------------------------------/
 
@@ -386,5 +396,5 @@ require("lazy").setup({
 	},
 	{
 		'djoshea/vim-autoread',
-	}
+	},
 })
