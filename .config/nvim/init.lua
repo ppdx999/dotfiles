@@ -229,16 +229,18 @@ require("lazy").setup({
     'williamboman/mason.nvim',
     build = ':MasonUpdate',
     opts = {},
+		version = '^1.0.0',
   },
   {
     'williamboman/mason-lspconfig.nvim',
     dependencies = {
-      { "williamboman/mason.nvim" },
-      { "neovim/nvim-lspconfig" },
+      { "williamboman/mason.nvim", version= '^1.0.0' },
+      { "neovim/nvim-lspconfig", version= '^1.0.0' },
       { "hrsh7th/nvim-cmp" },
       { "hrsh7th/cmp-nvim-lsp" },
       { "hrsh7th/vim-vsnip" },
     },
+		version = '^1.0.0',
     config = function()
       local lspconfig = require("lspconfig")
       require('mason').setup({})
@@ -396,5 +398,8 @@ require("lazy").setup({
 	},
 	{
 		'djoshea/vim-autoread',
+	},
+	{
+		'ppdx999/vim-report-markup-language'
 	},
 })
