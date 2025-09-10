@@ -403,4 +403,7 @@ require("lazy").setup({
 	{
 		'ppdx999/vim-report-markup-language'
 	},
+	{
+		'iamcco/markdown-preview.nvim',
+	},
 })
