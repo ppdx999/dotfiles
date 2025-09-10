@@ -6,4 +6,7 @@ if [ -z "$SSH_AGENT_PID" ] || ! kill -0 $SSH_AGENT_PID; then
     ssh-agent > ~/.ssh-agent
     . ~/.ssh-agent
 fi
-ssh-add -l >& /dev/null || ssh-add ~/.ssh/id_rsa
+if ! ssh-add -l >& /dev/null; then
+	ssh-add ~/.ssh/id_rsa 
+	ssh-add ~/.ssh/id_rsa_fujiswork
+fi
