@@ -252,6 +252,18 @@ require("lazy").setup({
             capabilities = require('cmp_nvim_lsp').default_capabilities(),
           }
         end,
+        ["elixirls"] = function()
+          lspconfig.elixirls.setup {
+            cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/elixir-ls") },
+            capabilities = require('cmp_nvim_lsp').default_capabilities(),
+            settings = {
+              elixirLS = {
+                dialyzerEnabled = false,
+                fetchDeps = false,
+              }
+            }
+          }
+        end,
       })
 
       vim.api.nvim_create_autocmd("LspAttach", {
@@ -324,27 +336,86 @@ require("lazy").setup({
   -- | Color
   -- -------------------------------/
   {
-     'sainnhe/everforest',
-     config = function()
-       if vim.fn.has('termguicolors') == 1 then
-         vim.opt.termguicolors = true
-       end
+    'Mofiqul/vscode.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      if vim.fn.has('termguicolors') == 1 then
+        vim.opt.termguicolors = true
+      end
 
-       local current_hour = tonumber(os.date('%H'))
-       vim.opt.background = 'dark'
-       -- if current_hour >= 6 and current_hour <= 13 then
-       --   vim.opt.background = 'light'
-       -- else
-       --   vim.opt.background = 'dark'
-       -- end
+      require('vscode').setup({
+        transparent = false,
+        italic_comments = true,
+        disable_nvimtree_bg = true,
+      })
 
-       vim.g.everforest_background = 'hard'
-
-       vim.g.everforest_better_performance = 1
-
-       vim.cmd('colorscheme everforest')
-     end
+      vim.cmd('colorscheme vscode')
+    end
   },
+  -- {
+  --   'rebelot/kanagawa.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     if vim.fn.has('termguicolors') == 1 then
+  --       vim.opt.termguicolors = true
+  --     end
+
+  --     require('kanagawa').setup({
+  --       theme = 'wave', -- wave, dragon, lotus
+  --       background = {
+  --         dark = 'wave',
+  --         light = 'lotus'
+  --       },
+  --     })
+
+  --     vim.cmd('colorscheme kanagawa')
+  --   end
+  -- },
+  -- {
+  --   'folke/tokyonight.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     if vim.fn.has('termguicolors') == 1 then
+  --       vim.opt.termguicolors = true
+  --     end
+
+  --     require('tokyonight').setup({
+  --       style = 'storm', -- storm, moon, night, day
+  --       transparent = false,
+  --       styles = {
+  --         comments = { italic = true },
+  --         keywords = { italic = true },
+  --       },
+  --     })
+
+  --     vim.cmd('colorscheme tokyonight')
+  --   end
+  -- },
+  -- {
+  --    'sainnhe/everforest',
+  --    config = function()
+  --      if vim.fn.has('termguicolors') == 1 then
+  --        vim.opt.termguicolors = true
+  --      end
+
+  --      local current_hour = tonumber(os.date('%H'))
+  --      vim.opt.background = 'dark'
+  --      -- if current_hour >= 6 and current_hour <= 13 then
+  --      --   vim.opt.background = 'light'
+  --      -- else
+  --      --   vim.opt.background = 'dark'
+  --      -- end
+
+  --      vim.g.everforest_background = 'hard'
+
+  --      vim.g.everforest_better_performance = 1
+
+  --      vim.cmd('colorscheme everforest')
+  --    end
+  -- },
   --- /------------------------------
   --  | Treesitter
   --  -------------------------------/
