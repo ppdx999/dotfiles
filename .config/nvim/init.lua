@@ -108,6 +108,7 @@ require("lazy").setup({
       'kuuote/ddu-source-mr',
       'Shougo/ddu-source-register',
       'shun/ddu-source-rg',
+      'kuuote/ddu-source-git_diff',
     },
     config = function()
       vim.fn['ddu#custom#patch_global']({
@@ -128,6 +129,9 @@ require("lazy").setup({
         pattern = 'ddu-ff',
         callback = function()
           vim.keymap.set('n', '<CR>', '<Cmd>call ddu#ui#do_action("itemAction")<CR>', { buffer = true })
+          vim.keymap.set('n', 'o', '<Cmd>call ddu#ui#do_action("itemAction", {"name": "open"})<CR>', { buffer = true })
+          vim.keymap.set('n', 's', '<Cmd>call ddu#ui#do_action("itemAction", {"name": "open", "params": {"command": "split"}})<CR>', { buffer = true })
+          vim.keymap.set('n', 'v', '<Cmd>call ddu#ui#do_action("itemAction", {"name": "open", "params": {"command": "vsplit"}})<CR>', { buffer = true })
           vim.keymap.set('n', 'i', '<Cmd>call ddu#ui#do_action("openFilterWindow")<CR>', { buffer = true })
           vim.keymap.set('n', 'q', '<Cmd>call ddu#ui#do_action("quit")<CR>', { buffer = true })
         end
@@ -216,11 +220,38 @@ require("lazy").setup({
         })
       end
 
+      local function launch_ddu_git_diff()
+        vim.fn['ddu#start']({
+          sources = {
+            {
+              name = 'git_diff',
+            },
+          },
+        })
+      end
+
+      local function launch_ddu_git_recent()
+        vim.fn['ddu#start']({
+          sources = {
+            {
+              name = 'file_external',
+            },
+          },
+          sourceParams = {
+            file_external = {
+              cmd = {'git', 'diff', 'HEAD~3..HEAD', '--name-only', '--diff-filter=d'},
+            },
+          },
+        })
+      end
+
       vim.keymap.set('n', '<leader>f', launch_ddu_file)
       vim.keymap.set('n', '<leader>b', launch_ddu_buffer)
       vim.keymap.set('n', '<leader>m', launch_ddu_mr)
       vim.keymap.set('n', '<leader>r', launch_ddu_register)
       vim.keymap.set('n', '<leader>g', launch_ddu_rg_live)
+      vim.keymap.set('n', '<leader>d', launch_ddu_git_diff)
+      vim.keymap.set('n', '<leader>h', launch_ddu_git_recent)
     end
   },
   -- /------------------------------
