@@ -349,6 +349,9 @@ require("lazy").setup({
   -- -------------------------------/
   {
     'lambdalisue/fern.vim',
+    dependencies = {
+      'lambdalisue/fern-git-status.vim',
+    },
     config = function()
       local init_fern = function()
         vim.g['fern#default_hidden'] = 1
