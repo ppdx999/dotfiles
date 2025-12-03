@@ -249,13 +249,13 @@ require("lazy").setup({
         })
       end
 
-      vim.keymap.set('n', '<leader>f', launch_ddu_file)
-      vim.keymap.set('n', '<leader>b', launch_ddu_buffer)
-      vim.keymap.set('n', '<leader>m', launch_ddu_mr)
-      vim.keymap.set('n', '<leader>r', launch_ddu_register)
-      vim.keymap.set('n', '<leader>g', launch_ddu_rg_live)
-      vim.keymap.set('n', '<leader>d', launch_ddu_git_diff)
-      vim.keymap.set('n', '<leader>h', launch_ddu_git_recent)
+      -- vim.keymap.set('n', '<leader>f', launch_ddu_file)
+      -- vim.keymap.set('n', '<leader>b', launch_ddu_buffer)
+      -- vim.keymap.set('n', '<leader>m', launch_ddu_mr)
+      -- vim.keymap.set('n', '<leader>r', launch_ddu_register)
+      -- vim.keymap.set('n', '<leader>g', launch_ddu_rg_live)
+      -- vim.keymap.set('n', '<leader>d', launch_ddu_git_diff)
+      -- vim.keymap.set('n', '<leader>h', launch_ddu_git_recent)
     end
   },
   -- /------------------------------
@@ -530,6 +530,20 @@ require("lazy").setup({
     version = '^1.0.0',
   },
 	-- /------------------------------
+	-- | Telescope
+	-- -------------------------------/
+	{
+		'nvim-telescope/telescope.nvim',
+		dependencies = { 'nvim-lua/plenary.nvim' },
+		config = function()
+			local telescope = require('telescope.builtin')
+			vim.keymap.set('n', '<leader>ff', telescope.find_files, { desc = 'Telescope find files' })
+			vim.keymap.set('n', '<leader>fg', telescope.live_grep, { desc = 'Telescope live grep' })
+			vim.keymap.set('n', '<leader>fb', telescope.buffers, { desc = 'Telescope buffers' })
+			vim.keymap.set('n', '<leader>fh', telescope.help_tags, { desc = 'Telescope help tags' })
+		end,
+	},
+	-- /------------------------------
 	-- | which-key
 	-- -------------------------------/
 	{
@@ -546,13 +560,18 @@ require("lazy").setup({
 				{ "<leader>v", desc = "縦分割" },
 				{ "<leader>j", desc = "ファイラー (Explore)" },
 				-- DDU
-				{ "<leader>f", desc = "ファイル検索" },
-				{ "<leader>b", desc = "バッファ一覧" },
-				{ "<leader>m", desc = "最近のファイル" },
-				{ "<leader>r", desc = "レジスタ" },
-				{ "<leader>g", desc = "Grep検索" },
-				{ "<leader>d", desc = "Git差分" },
-				{ "<leader>h", desc = "最近の変更ファイル" },
+				-- { "<leader>f", desc = "ファイル検索" },
+				-- { "<leader>b", desc = "バッファ一覧" },
+				-- { "<leader>m", desc = "最近のファイル" },
+				-- { "<leader>r", desc = "レジスタ" },
+				-- { "<leader>g", desc = "Grep検索" },
+				-- { "<leader>d", desc = "Git差分" },
+				-- { "<leader>h", desc = "最近の変更ファイル" },
+				-- Telescope
+				{ "<leader>ff", desc = "ファイル検索" },
+				{ "<leader>fg", desc = "Grep検索" },
+				{ "<leader>fb", desc = "バッファ一覧" },
+				{ "<leader>fh", desc = "ヘルプタグ検索" },
 				-- Fern
 				{ "<leader>e", desc = "ファイルツリー" },
 				-- Git
