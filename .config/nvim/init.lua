@@ -139,6 +139,7 @@ require("lazy").setup({
           vim.keymap.set('n', 'v', '<Cmd>call ddu#ui#do_action("itemAction", {"name": "open", "params": {"command": "vsplit"}})<CR>', { buffer = true })
           vim.keymap.set('n', 'i', '<Cmd>call ddu#ui#do_action("openFilterWindow")<CR>', { buffer = true })
           vim.keymap.set('n', 'q', '<Cmd>call ddu#ui#do_action("quit")<CR>', { buffer = true })
+          vim.keymap.set('n', 'p', '<Cmd>call ddu#ui#do_action("preview")<CR>', { buffer = true })
         end
       })
 
