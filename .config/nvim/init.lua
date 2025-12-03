@@ -535,19 +535,37 @@ require("lazy").setup({
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		},
-		keys = {
-			{
-				"<leader>?",
-				function()
-					require("which-key").show({ global = false })
-				end,
-				desc = "Buffer Local Keymaps (which-key)",
-			},
-		},
+		opts = {},
+		config = function()
+			local wk = require("which-key")
+			wk.setup({})
+			wk.add({
+				-- 基本操作
+				{ "<leader>w", desc = "保存" },
+				{ "<leader>q", desc = "閉じる" },
+				{ "<leader>v", desc = "縦分割" },
+				{ "<leader>j", desc = "ファイラー (Explore)" },
+				-- DDU
+				{ "<leader>f", desc = "ファイル検索" },
+				{ "<leader>b", desc = "バッファ一覧" },
+				{ "<leader>m", desc = "最近のファイル" },
+				{ "<leader>r", desc = "レジスタ" },
+				{ "<leader>g", desc = "Grep検索" },
+				{ "<leader>d", desc = "Git差分" },
+				{ "<leader>h", desc = "最近の変更ファイル" },
+				-- Fern
+				{ "<leader>e", desc = "ファイルツリー" },
+				-- Git
+				{ "<leader>l", desc = "LazyGit" },
+				-- Claude
+				{ "<leader>a", desc = "Claude Code" },
+				-- UI
+				{ "<leader>-", desc = "タブライン切替" },
+				-- Terminal
+				{ "<leader>\\", desc = "ターミナル切替" },
+				-- which-key
+				{ "<leader>?", function() require("which-key").show({ global = false }) end, desc = "キーマップ表示" },
+			})
+		end,
 	},
 })
