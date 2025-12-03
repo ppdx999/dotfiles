@@ -351,24 +351,57 @@ require("lazy").setup({
   -- /------------------------------
   -- | Filer
   -- -------------------------------/
+  -- {
+  --   'lambdalisue/fern.vim',
+  --   dependencies = {
+  --     'lambdalisue/fern-git-status.vim',
+  --   },
+  --   config = function()
+  --     local init_fern = function()
+  --       vim.g['fern#default_hidden'] = 1
+  --       vim.keymap.set('n', 'D', '<Plug>(fern-action-remove)', {noremap = false, buffer = true})
+  --     end
+
+  --     vim.api.nvim_create_autocmd("FileType", {
+  --       pattern = 'fern',
+  --       callback = init_fern
+  --     })
+
+  --     vim.keymap.set('n', '<leader>e', ':<C-u>Fern . -reveal=% -drawer -toggle -width=30<CR>')
+  --   end
+  -- },
   {
-    'lambdalisue/fern.vim',
-    dependencies = {
-      'lambdalisue/fern-git-status.vim',
-    },
+    'stevearc/oil.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      local init_fern = function()
-        vim.g['fern#default_hidden'] = 1
-        vim.keymap.set('n', 'D', '<Plug>(fern-action-remove)', {noremap = false, buffer = true})
-      end
-
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = 'fern',
-        callback = init_fern
+      require('oil').setup({
+        default_file_explorer = true,
+        columns = {
+          'icon',
+        },
+        view_options = {
+          show_hidden = true,
+        },
+        keymaps = {
+          ['g?'] = 'actions.show_help',
+          ['<CR>'] = 'actions.select',
+          ['<C-v>'] = 'actions.select_vsplit',
+          ['<C-s>'] = 'actions.select_split',
+          ['<C-t>'] = 'actions.select_tab',
+          ['<C-p>'] = 'actions.preview',
+          ['<C-c>'] = 'actions.close',
+          ['<C-l>'] = 'actions.refresh',
+          ['-'] = 'actions.parent',
+          ['_'] = 'actions.open_cwd',
+          ['`'] = 'actions.cd',
+          ['~'] = 'actions.tcd',
+          ['gs'] = 'actions.change_sort',
+          ['gx'] = 'actions.open_external',
+          ['g.'] = 'actions.toggle_hidden',
+        },
       })
-
-      vim.keymap.set('n', '<leader>e', ':<C-u>Fern . -reveal=% -drawer -toggle -width=30<CR>')
-    end
+      vim.keymap.set('n', '<leader>e', '<cmd>Oil<cr>', { desc = 'Open Oil file explorer' })
+    end,
   },
   -- /------------------------------
   -- | Color
