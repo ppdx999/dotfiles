@@ -8,6 +8,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = true
 vim.opt.wrap = false
+vim.opt.laststatus = 0
 
 if vim.fn.executable("win32yank.exe") == 1 then
 	vim.opt.clipboard = 'unnamedplus'
@@ -387,69 +388,6 @@ require("lazy").setup({
       vim.cmd('colorscheme vscode')
     end
   },
-  -- {
-  --   'rebelot/kanagawa.nvim',
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     if vim.fn.has('termguicolors') == 1 then
-  --       vim.opt.termguicolors = true
-  --     end
-
-  --     require('kanagawa').setup({
-  --       theme = 'wave', -- wave, dragon, lotus
-  --       background = {
-  --         dark = 'wave',
-  --         light = 'lotus'
-  --       },
-  --     })
-
-  --     vim.cmd('colorscheme kanagawa')
-  --   end
-  -- },
-  -- {
-  --   'folke/tokyonight.nvim',
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     if vim.fn.has('termguicolors') == 1 then
-  --       vim.opt.termguicolors = true
-  --     end
-
-  --     require('tokyonight').setup({
-  --       style = 'storm', -- storm, moon, night, day
-  --       transparent = false,
-  --       styles = {
-  --         comments = { italic = true },
-  --         keywords = { italic = true },
-  --       },
-  --     })
-
-  --     vim.cmd('colorscheme tokyonight')
-  --   end
-  -- },
-  -- {
-  --    'sainnhe/everforest',
-  --    config = function()
-  --      if vim.fn.has('termguicolors') == 1 then
-  --        vim.opt.termguicolors = true
-  --      end
-
-  --      local current_hour = tonumber(os.date('%H'))
-  --      vim.opt.background = 'dark'
-  --      -- if current_hour >= 6 and current_hour <= 13 then
-  --      --   vim.opt.background = 'light'
-  --      -- else
-  --      --   vim.opt.background = 'dark'
-  --      -- end
-
-  --      vim.g.everforest_background = 'hard'
-
-  --      vim.g.everforest_better_performance = 1
-
-  --      vim.cmd('colorscheme everforest')
-  --    end
-  -- },
   --- /------------------------------
   --  | Treesitter
   --  -------------------------------/
@@ -497,7 +435,13 @@ require("lazy").setup({
     'findango/vim-mdx',
   },
 	{
-		'akinsho/toggleterm.nvim', version = "*", config = true
+		'akinsho/toggleterm.nvim', version = "*",
+		config = function()
+			require("toggleterm").setup{
+				open_mapping = [[<c-\>]],
+				direction = 'horizontal',
+			}
+		end
 	},
 	{
 		'tyru/open-browser.vim'
@@ -510,5 +454,29 @@ require("lazy").setup({
 	},
 	{
 		'iamcco/markdown-preview.nvim',
+	},
+	{
+		'b0o/incline.nvim',
+		config = function()
+			require('incline').setup()
+		end
+	},
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+		keys = {
+			{
+				"<leader>?",
+				function()
+					require("which-key").show({ global = false })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
 	},
 })
