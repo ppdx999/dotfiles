@@ -41,6 +41,10 @@ vim.keymap.set('n', 'tt', ':tabnew<CR>')
 vim.keymap.set('n', '[t', ':tabprevious<CR>')
 vim.keymap.set('n', ']t', ':tabnext<CR>')
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+vim.keymap.set('t', '<C-w>h', '<C-\\><C-n><C-w>h')
+vim.keymap.set('t', '<C-w>j', '<C-\\><C-n><C-w>j')
+vim.keymap.set('t', '<C-w>k', '<C-\\><C-n><C-w>k')
+vim.keymap.set('t', '<C-w>l', '<C-\\><C-n><C-w>l')
 vim.keymap.set('i', 'jk', '<Esc>')
 
 
@@ -405,11 +409,29 @@ require("lazy").setup({
   -- | git
   -- ------------------------------/
   {
-    'tpope/vim-fugitive',
-  },
-  {
+		-- Shows git diff in the sign column
     'airblade/vim-gitgutter',
   },
+	{
+		'kdheepak/lazygit.nvim',
+		lazy = true,
+		cmd = {
+			"LazyGit",
+			"LazyGitConfig",
+			"LazyGitCurrentFile",
+			"LazyGitFilter",
+			"LazyGitFilterCurrentFile",
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+			"nvim-lua/plenary.nvim",
+    },
+    -- setting the keybinding for LazyGit with 'keys' is recommended in
+    -- order to load the plugin when the command is run for the first time
+    keys = {
+			{ "<leader>l", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+    }
+	},
   -- /------------------------------
   -- | PlantUML
   -- -------------------------------/
@@ -437,10 +459,11 @@ require("lazy").setup({
 	{
 		'akinsho/toggleterm.nvim', version = "*",
 		config = function()
-			require("toggleterm").setup{
+			require("toggleterm").setup({
 				open_mapping = [[<c-\>]],
-				direction = 'horizontal',
-			}
+				direction = 'vertical',
+				size = 60,
+			})
 		end
 	},
 	{
