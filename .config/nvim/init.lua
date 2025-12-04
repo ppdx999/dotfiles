@@ -9,6 +9,7 @@ vim.opt.smartcase = true
 vim.opt.hlsearch = true
 vim.opt.wrap = false
 vim.opt.laststatus = 0
+vim.opt.cmdheight = 0
 
 if vim.fn.executable("win32yank.exe") == 1 then
 	vim.opt.clipboard = 'unnamedplus'
