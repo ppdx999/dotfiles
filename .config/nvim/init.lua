@@ -46,6 +46,15 @@ vim.keymap.set('t', '<C-w>j', '<C-\\><C-n><C-w>j')
 vim.keymap.set('t', '<C-w>k', '<C-\\><C-n><C-w>k')
 vim.keymap.set('t', '<C-w>l', '<C-\\><C-n><C-w>l')
 
+-- /------------------------------
+-- | Elixir
+-- -------------------------------/
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "elixir",
+  callback = function()
+    vim.keymap.set('n', '<leader>t', ':!mix test %<CR>', { buffer = true, desc = 'Run mix test on current file' })
+  end,
+})
 
 -- /------------------------------
 -- | RML
