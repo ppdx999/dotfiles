@@ -422,6 +422,14 @@ require("lazy").setup({
       })
 
       vim.cmd('colorscheme vscode')
+
+      -- Transparent toggle command
+      local transparent = false
+      vim.api.nvim_create_user_command('TransparentToggle', function()
+        transparent = not transparent
+        require('vscode').setup({ transparent = transparent })
+        vim.cmd('colorscheme vscode')
+      end, {})
     end
   },
   --- /------------------------------
@@ -523,6 +531,7 @@ require("lazy").setup({
 				open_mapping = [[<leader>\]],
 				direction = 'vertical',
 				size = 60,
+				transparent = true,
 			})
 		end
 	},
