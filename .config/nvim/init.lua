@@ -417,20 +417,12 @@ require("lazy").setup({
       end
 
       require('vscode').setup({
-        transparent = false,
+        transparent = true,
         italic_comments = true,
         disable_nvimtree_bg = true,
       })
 
       vim.cmd('colorscheme vscode')
-
-      -- Transparent toggle command
-      local transparent = false
-      vim.api.nvim_create_user_command('TransparentToggle', function()
-        transparent = not transparent
-        require('vscode').setup({ transparent = transparent })
-        vim.cmd('colorscheme vscode')
-      end, {})
     end
   },
   --- /------------------------------
