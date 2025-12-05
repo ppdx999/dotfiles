@@ -640,7 +640,11 @@ require("lazy").setup({
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
-		opts = {},
+		opts = {
+		 triggers = {
+			 { "<leader>", mode = {"n", "v"} },
+		 }
+		},
 		config = function()
 			local wk = require("which-key")
 			wk.setup({})
