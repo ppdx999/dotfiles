@@ -361,25 +361,6 @@ require("lazy").setup({
   -- /------------------------------
   -- | Filer
   -- -------------------------------/
-  -- {
-  --   'lambdalisue/fern.vim',
-  --   dependencies = {
-  --     'lambdalisue/fern-git-status.vim',
-  --   },
-  --   config = function()
-  --     local init_fern = function()
-  --       vim.g['fern#default_hidden'] = 1
-  --       vim.keymap.set('n', 'D', '<Plug>(fern-action-remove)', {noremap = false, buffer = true})
-  --     end
-
-  --     vim.api.nvim_create_autocmd("FileType", {
-  --       pattern = 'fern',
-  --       callback = init_fern
-  --     })
-
-  --     vim.keymap.set('n', '<leader>e', ':<C-u>Fern . -reveal=% -drawer -toggle -width=30<CR>')
-  --   end
-  -- },
   {
     'stevearc/oil.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
